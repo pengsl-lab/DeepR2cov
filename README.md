@@ -15,4 +15,4 @@ DeepR2cov is tested to work under:
 
 
 # Contacts
-If you have any questions or comments, please feel free to email:xqw@hnu.edu.cn.
+If you have any questions or comments, please feel free to email: xqw@hnu.edu.cn.
