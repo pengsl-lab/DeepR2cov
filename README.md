@@ -1,5 +1,5 @@
 # DeepR2cov
-A deep representation on heterogeneous drug network, termed DeepR2cov, to discover potential agents for treating the excessive inflammatory response in COVID-19 patients.
+DeepR2cov: A deep representation on heterogeneous drug network to discover potential agents for treating the excessive inflammatory response in COVID-19 patients.
 
 # Data description
 * CMapscore: Connectivity map score based on up- and down-regulated genes of SARS patients for 2439 drug compounds.
