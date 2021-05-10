@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on January 11 2021
+This code refers to the implementation of NeoDTI (https://github.com/FangpingWan/NeoDTI.git)
 
 """
 
