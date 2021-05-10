@@ -22,7 +22,7 @@ The network representation model and training regime in DeepR2cov are similar to
   
 * Download the models BERT-Base, Uncased: 12-layer, 768-hidden, 12-heads, from https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip, 
 You can construct a vocab file (vocab.txt) of nodes and modify the config file (bert_config.json) which specifies the hyperparameters of the model.
-* Run create_pretraining_data.py to mask metapath sample.  \  
+* Run create_pretraining_data.py to mask metapath sample. \  
 python create_pretraining_data.py \
 --input_file=~/example_metapath.txt \
 --output_file=~/tf_examples.tfrecord \
