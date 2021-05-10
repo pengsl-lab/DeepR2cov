@@ -16,23 +16,23 @@ DeepR2cov is tested to work under:
 * sklearn 0.19.0
 
 # Quick start
-* Download the source code of BERT from [BERT](https://github.com/google-research/bert). 
+* Download the source code of [BERT](https://github.com/google-research/bert). 
 * Manually replace the run_pretraining.py
-The network representation model and training regime in DeepR2cov are similar to the original implementation described in "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py from https://github.com/google-research/bert with this file. 
+The network representation model and training regime in DeepR2cov are similar to the original implementation described in "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py in [BERT](https://github.com/google-research/bert) with this file. 
   
-* Download the models BERT-Base, Uncased: 12-layer, 768-hidden, 12-heads, from https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip, 
+* Download the models [BERT-Base, Uncased](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip): 12-layer, 768-hidden, 12-heads. 
 You can construct a vocab file (vocab.txt) of nodes and modify the config file (bert_config.json) which specifies the hyperparameters of the model.
-* Run create_pretraining_data.py to mask metapath sample. \ 
-python create_pretraining_data.py \
---input_file=../example_metapath.txt \
---output_file=../tf_examples.tfrecord \
---vocab_file=../uncased_L-12_H-768_A-12/vocab.txt \
---do_lower_case=True \
---max_seq_length=128 \
---max_predictions_per_seq=20 \
---masked_lm_prob=0.15 \
---random_seed=12345 \
---dupe_factor=5 \
+* Run create_pretraining_data.py to mask metapath sample.  
+python create_pretraining_data.py   \  
+--input_file=../example_metapath.txt   \  
+--output_file=../tf_examples.tfrecord   \  
+--vocab_file=../uncased_L-12_H-768_A-12/vocab.txt \  
+--do_lower_case=True   \  
+--max_seq_length=128   \  
+--max_predictions_per_seq=20   \  
+--masked_lm_prob=0.15   \  
+--random_seed=12345   \  
+--dupe_factor=5   \  
 The max_predictions_per_seq is the maximum number of masked LM predictions per sequence. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
 
 * Run run_pretraining.py to attain a network representation model. Options are:\
