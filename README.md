@@ -24,9 +24,9 @@ The network representation model and training regime in DeepR2cov are similar to
 You can construct a vocab file (vocab.txt) of nodes and modify the config file (bert_config.json) which specifies the hyperparameters of the model.
 * Run create_pretraining_data.py to mask metapath sample. \ 
 python create_pretraining_data.py \
---input_file=~/example_metapath.txt \
---output_file=~/tf_examples.tfrecord \
---vocab_file=~/uncased_L-12_H-768_A-12/vocab.txt \
+--input_file=path/example_metapath.txt \
+--output_file=path/tf_examples.tfrecord \
+--vocab_file=path/uncased_L-12_H-768_A-12/vocab.txt \
 --do_lower_case=True \
 --max_seq_length=128 \
 --max_predictions_per_seq=20 \
@@ -37,8 +37,8 @@ The max_predictions_per_seq is the maximum number of masked LM predictions per s
 
 * Run run_pretraining.py to attain a network representation model. Options are:\
 python run_pretraining.py \
---input_file=~/tf_examples.tfrecord \
---output_dir=~/RLearing_output \
+--input_file=path/tf_examples.tfrecord \
+--output_dir=../RLearing_output \
 --do_train=True \
 --do_eval=True \
 --bert_config_file=~/uncased_L-12_H-768_A-12/bert_config.json \
