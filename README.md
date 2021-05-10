@@ -3,8 +3,8 @@
 A deep representation on heterogeneous drug network, termed DeepR2cov, to discover potential agents for treating the excessive inflammatory response in COVID-19 patients.
 
 # Data description
-* CMapscore: Connectivity map score based on up- and down-regulated genes of SARS patients for 2439 drug compounds.
 * Example_metapath: A representative subset of meta paths.
+* CMapscore: Connectivity map score based on up- and down-regulated genes of SARS patients for 2439 drug compounds.
 
 
 # Requirements
