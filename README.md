@@ -16,7 +16,7 @@ DeepR2cov is tested to work under:
 * sklearn 0.19.0
 
 # Quick start
-* Download the source code of BERT from https://github.com/google-research/bert. 
+* Download the source code of BERT from [BERT](https://github.com/google-research/bert). 
 * Manually replace the run_pretraining.py
 The network representation model and training regime in DeepR2cov are similar to the original implementation described in "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py from https://github.com/google-research/bert with this file. 
   
