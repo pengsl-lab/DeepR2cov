@@ -1,5 +1,4 @@
 # DeepR2cov
-
 A deep representation on heterogeneous drug network, termed DeepR2cov, to discover potential agents for treating the excessive inflammatory response in COVID-19 patients.
 
 # Data description
@@ -19,7 +18,7 @@ DeepR2cov is tested to work under:
 * Manually replace the run_pretraining.py
 The network representation model and training regime in DeepR2cov are similar to the original implementation described in "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py in [BERT](https://github.com/google-research/bert) with this file. 
   
-* Download the models [BERT-Base, Uncased](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip): 12-layer, 768-hidden, 12-heads. 
+* Download the [BERT-Base, Uncased](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model: 12-layer, 768-hidden, 12-heads. 
 You can construct a vocab file (vocab.txt) of nodes and modify the config file (bert_config.json) which specifies the hyperparameters of the model.
 * Run create_pretraining_data.py to mask metapath sample.  
 <pre> python create_pretraining_data.py   \
@@ -32,7 +31,7 @@ You can construct a vocab file (vocab.txt) of nodes and modify the config file (
   --masked_lm_prob=0.15   \ 
   --random_seed=12345   \
   --dupe_factor=5 </pre>
-The max_predictions_per_seq is the maximum number of masked LM predictions per sequence. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
+The max_predictions_per_seq is the maximum number of masked meta path predictions per path sample. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
 
 * Run run_pretraining.py to attain a network representation model. Options are:  
 <pre> python run_pretraining.py \  
