@@ -34,28 +34,28 @@ You can construct a vocab file (vocab.txt) of nodes and modify the config file (
 The max_predictions_per_seq is the maximum number of masked meta path predictions per path sample. masked_lm_prob is the probability for masked token.
 
 * Run run_pretraining.py to train a network representation model.
-<pre> python run_pretraining.py \  
-  --input_file=../tf_examples.tfrecord \  
-  --output_dir=../RLearing_output \  
-  --do_train=True \  
-  --do_eval=True \  
-  --bert_config_file=../uncased_L-12_H-768_A-12/bert_config.json \  
-  --train_batch_size=32 \  
-  --max_seq_length=128 \  
-  --max_predictions_per_seq=20 \  
-  --num_train_steps=20 \  
-  --num_warmup_steps=10 \  
+<pre> python run_pretraining.py   \  
+  --input_file=../tf_examples.tfrecord   \  
+  --output_dir=../RLearing_output   \  
+  --do_train=True   \  
+  --do_eval=True   \  
+  --bert_config_file=../uncased_L-12_H-768_A-12/bert_config.json   \  
+  --train_batch_size=32   \  
+  --max_seq_length=128   \  
+  --max_predictions_per_seq=20   \  
+  --num_train_steps=20   \  
+  --num_warmup_steps=10   \  
   --learning_rate=2e-5  </pre>
   
 * Run extract_features.py extract_features.py to attain the low-dimensional representation vectors of vertices.
-<pre> python extract_features.py \  
-  --input_file=../node.txt \  
-  --output_file=../output.jsonl \  
-  --vocab_file=../uncased_L-12_H-768_A-12/vocab.txt \  
-  --bert_config_file=../uncased_L-12_H-768_A-12/bert_config.json \  
-  --init_checkpoint=../RLearing_output/bert_model.ckpt \  
-  --layers=-1,-2,-3,-4 \  
-  --max_seq_length=128 \  
+<pre> python extract_features.py   \  
+  --input_file=../node.txt   \  
+  --output_file=../output.jsonl   \  
+  --vocab_file=../uncased_L-12_H-768_A-12/vocab.txt   \  
+  --bert_config_file=../uncased_L-12_H-768_A-12/bert_config.json   \  
+  --init_checkpoint=../RLearing_output/bert_model.ckpt   \  
+  --layers=-1,-2,-3,-4   \  
+  --max_seq_length=128   \  
   --batch_size=8 </pre>
 
 * Run PDI_drug_cov.py to predict of the confidence scores between drugs and TNF-α/IL-6.  
