@@ -6,7 +6,6 @@ A deep representation on heterogeneous drug network, termed DeepR2cov, to discov
 * Example_metapath: A representative subset of meta paths.
 * CMapscore: Connectivity map score based on up- and down-regulated genes of SARS patients for 2439 drug compounds.
 
-
 # Requirements
 DeepR2cov is tested to work under:
 * Python 3.6  
@@ -32,8 +31,7 @@ You can construct a vocab file (vocab.txt) of nodes and modify the config file (
   --max_predictions_per_seq=20   \
   --masked_lm_prob=0.15   \ 
   --random_seed=12345   \
-  --dupe_factor=5   
-  </pre>
+  --dupe_factor=5 </pre>
 The max_predictions_per_seq is the maximum number of masked LM predictions per sequence. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
 
 * Run run_pretraining.py to attain a network representation model. Options are:  
@@ -48,9 +46,8 @@ The max_predictions_per_seq is the maximum number of masked LM predictions per s
   --max_predictions_per_seq=20 \  
   --num_train_steps=20 \  
   --num_warmup_steps=10 \  
-  --learning_rate=2e-5 
-  </pre>
-
+  --learning_rate=2e-5  </pre>
+  
 * Run extract_features.py extract_features.py to attain the low-dimensional representation vectors of vertices. Options are:  
 <pre> python extract_features.py \  
   --input_file=../node.txt \  
@@ -60,16 +57,14 @@ The max_predictions_per_seq is the maximum number of masked LM predictions per s
   --init_checkpoint=../RLearing_output/bert_model.ckpt \  
   --layers=-1,-2,-3,-4 \  
   --max_seq_length=128 \  
-  --batch_size=8 
-  </pre>
+  --batch_size=8 </pre>
 
 * Run PDI_drug_cov.py PDI_drug_cov.py to predict of drug-TNF-α/IL-6 confidence scores. Options are:  
-<pre> python PDI_drug_cov.py	-n 1 -k 512 \  
-  </pre>
-  n is global norm to be clipped, and k is the dimension of project matrices. 
+<pre> python PDI_drug_cov.py	-n 1 -k 512 </pre>
+n is global norm to be clipped, and k is the dimension of project matrices. 
 
 * Run top_rank.py to select top 20 high-confidence drugs binding to TNF-α and IL-6, respectively.   
-  <pre> python top_rank.py   </pre>
+<pre> python top_rank.py   </pre>
 
 # Contacts
 If you have any questions or comments, please feel free to email:xqw@hnu.edu.cn.
