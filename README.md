@@ -16,7 +16,7 @@ DeepR2cov is tested to work under:
 # Quick start
 * Download the source code of [BERT](https://github.com/google-research/bert). 
 * Manually replace the run_pretraining.py
-The network representation model and training regime in DeepR2cov are similar to the original implementation described in "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py in [BERT](https://github.com/google-research/bert) with this file. 
+The network representation model and training regime in DeepR2cov are similar to the original implementation described in "[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://www.aclweb.org/anthology/N19-1423/)". Therefore, the code of network representation of DeepR2cov can be downloaded from https://github.com/google-research/bert. But BERT uses a combination of two tasks, i.e,. masked language learning and the consecutive sentences classification. Nevertheless, different from natural language modeling, meta paths do not have a consecutive relationship. Therefore, DeepR2cov does not involve the continuous sentences training. If you want to run DeepR2cov, please manually replace the run_pretraining.py in [BERT](https://github.com/google-research/bert) with this file. 
   
 * Download the [BERT-Base, Uncased](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model: 12-layer, 768-hidden, 12-heads. 
 You can construct a vocab file (vocab.txt) of nodes and modify the config file (bert_config.json) which specifies the hyperparameters of the model.
@@ -31,9 +31,9 @@ You can construct a vocab file (vocab.txt) of nodes and modify the config file (
   --masked_lm_prob=0.15   \ 
   --random_seed=12345   \
   --dupe_factor=5 </pre>
-The max_predictions_per_seq is the maximum number of masked meta path predictions per path sample. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
+The max_predictions_per_seq is the maximum number of masked meta path predictions per path sample. masked_lm_prob is the probability for masked token.
 
-* Run run_pretraining.py to attain a network representation model.
+* Run run_pretraining.py to train a network representation model.
 <pre> python run_pretraining.py \  
   --input_file=../tf_examples.tfrecord \  
   --output_dir=../RLearing_output \  
@@ -58,12 +58,11 @@ The max_predictions_per_seq is the maximum number of masked meta path prediction
   --max_seq_length=128 \  
   --batch_size=8 </pre>
 
-* Run PDI_drug_cov.py PDI_drug_cov.py to predict of drug-TNF-α/IL-6 confidence scores.  
-<pre> python PDI_drug_cov.py	-n 1 -k 512 </pre>
-n is global norm to be clipped, and k is the dimension of project matrices. 
+* Run PDI_drug_cov.py to predict of the confidence scores between drugs and TNF-α/IL-6.  
+<pre> python PDI_drug_cov.py </pre>
 
 * Run top_rank.py to select top 20 high-confidence drugs binding to TNF-α and IL-6, respectively.   
 <pre> python top_rank.py   </pre>
 
 # Contacts
-If you have any questions or comments, please feel free to email:xqw@hnu.edu.cn.
+If you have any questions or comments, please feel free to email: xqw@hnu.edu.cn.
