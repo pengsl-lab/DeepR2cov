@@ -33,7 +33,7 @@ You can construct a vocab file (vocab.txt) of nodes and modify the config file (
   --dupe_factor=5 </pre>
 The max_predictions_per_seq is the maximum number of masked meta path predictions per path sample. masked_lm_prob is the probability for masked token. You should set this to around max_seq_length*masked_lm_prob.
 
-* Run run_pretraining.py to attain a network representation model. Options are:  
+* Run run_pretraining.py to attain a network representation model.
 <pre> python run_pretraining.py \  
   --input_file=../tf_examples.tfrecord \  
   --output_dir=../RLearing_output \  
@@ -47,7 +47,7 @@ The max_predictions_per_seq is the maximum number of masked meta path prediction
   --num_warmup_steps=10 \  
   --learning_rate=2e-5  </pre>
   
-* Run extract_features.py extract_features.py to attain the low-dimensional representation vectors of vertices. Options are:  
+* Run extract_features.py extract_features.py to attain the low-dimensional representation vectors of vertices.
 <pre> python extract_features.py \  
   --input_file=../node.txt \  
   --output_file=../output.jsonl \  
@@ -58,7 +58,7 @@ The max_predictions_per_seq is the maximum number of masked meta path prediction
   --max_seq_length=128 \  
   --batch_size=8 </pre>
 
-* Run PDI_drug_cov.py PDI_drug_cov.py to predict of drug-TNF-α/IL-6 confidence scores. Options are:  
+* Run PDI_drug_cov.py PDI_drug_cov.py to predict of drug-TNF-α/IL-6 confidence scores.  
 <pre> python PDI_drug_cov.py	-n 1 -k 512 </pre>
 n is global norm to be clipped, and k is the dimension of project matrices. 
 
