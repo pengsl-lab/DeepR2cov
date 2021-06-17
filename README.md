@@ -64,5 +64,14 @@ The max_predictions_per_seq is the maximum number of masked meta path prediction
 * Run top_rank.py to select top 20 high-confidence drugs binding to TNF-α and IL-6, respectively.   
 <pre> python top_rank.py   </pre>
 
+# Please cite our paper if you use this code and data in your work.
+@article{DeepR2cov2021, \
+    title = {DeepR2cov: deep representation learning on heterogeneous drug networks to discover anti-inflammatory agents for COVID-19}, \
+    author = {Wang, Xiaoqi and Xin, Bin and Tan, Weihong and Xu, Zhijian and Li, Kenli and Li, Fei and Zhong, Wu and Peng, Shaoliang}, \
+	  journal = {Briefings in Bioinformatics}, \
+    year = {2021}, \
+    doi = {10.1093/bib/bbab226} \
+}
+
 # Contacts
 If you have any questions or comments, please feel free to email: xqw@hnu.edu.cn.
